@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spacebar Speed Test | Check Your CPS Online — Spacebar Clicker</title>
+    <meta name="description" content="Test your spacebar clicking speed with our free online CPS tool. Choose from 1s to 60s modes and see how fast you can press the spacebar. Perfect for gamers and typists!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://spacebarclicker.win/spacebar-speed-test">
+    <meta property="og:title" content="Spacebar Speed Test | How Fast Can You Click?">
+    <meta property="og:description" content="Test your spacebar CPS online. Free, instant, no sign-up required.">
+    <meta property="og:image" content="https://spacebarclicker.win/android-chrome-512x512.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Spacebar Speed Test | CPS Counter">
+    <meta name="twitter:image" content="https://spacebarclicker.win/android-chrome-512x512.png">
+    <link rel="canonical" href="https://spacebarclicker.win/spacebar-speed-test">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Page-specific: Speed Test Tool */
+        .test-box {
+            background: var(--bg-dark);
+            border: var(--border-width) solid var(--border-light);
+            border-bottom-width: 25px;
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+        }
+        .test-box h1 { color: var(--text-main); border-color: rgba(255,255,255,0.2); font-size: 2rem; }
+        .mode-selector { display: flex; justify-content: center; gap: 10px; margin: 1.5rem 0; flex-wrap: wrap; }
+        .mode-btn {
+            background: #eff2dd;
+            border: 2px solid #483d21;
+            border-bottom-width: 5px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #483d21;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1rem;
+        }
+        .mode-btn.active { background: var(--text-main); border-color: var(--white); }
+        .timer-display { font-size: 2.5rem; font-weight: bold; margin: 1rem 0; color: var(--text-muted); }
+        .counter-display { font-size: 5rem; font-weight: 900; margin: 0.5rem 0; color: var(--white); }
+        #click-area {
+            background: #eff2dd;
+            background: linear-gradient(180deg, #eff2dd 0, #b1b495 100%);
+            border: 5px solid #483d21;
+            border-bottom-width: 25px;
+            border-radius: 15px;
+            padding: 40px 50px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8a7d5a;
+            cursor: pointer;
+            transition: transform 80ms ease-in, border-bottom-width 80ms ease-in;
+            user-select: none;
+            margin: 1rem auto;
+            max-width: 400px;
+            letter-spacing: 10px;
+        }
+        #click-area:active, #click-area.sb_active {
+            border-bottom-width: 15px;
+            transform: scaleX(92%) scaleY(92%);
+            color: #483d21;
+        }
+        .result-box { margin-top: 1.5rem; display: none; }
+        .result-val { font-size: 2.5rem; color: var(--white); display: block; font-weight: 900; }
+        .result-sub { font-size: 1rem; color: var(--text-muted); display: block; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="/" class="logo-link"><h1 class="logo">SPACEBAR <span>CLICKER</span></h1></a>
+        <nav>
+            <a href="/">PLAY GAME</a>
+            <a href="/spacebar-speed-test">SPEED TEST</a>
+            <a href="/how-to-play">HOW TO PLAY</a>
+            <a href="/upgrade">UPGRADES</a>
+            <a href="/about">ABOUT</a>
+            <a href="/#faq">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<div class="page-container">
+    <div class="test-box">
+        <h1>Spacebar Speed Test</h1>
+        <p style="color:var(--text-muted);margin-bottom:0;">Select a time limit, then press <strong style="color:var(--text-main)">SPACEBAR</strong> or tap to start.</p>
+
+        <div class="mode-selector">
+            <button class="mode-btn active" data-time="1">1s</button>
+            <button class="mode-btn" data-time="5">5s</button>
+            <button class="mode-btn" data-time="10">10s</button>
+            <button class="mode-btn" data-time="30">30s</button>
+            <button class="mode-btn" data-time="60">60s</button>
+        </div>
+
+        <div class="timer-display" id="timer">1.00s remaining</div>
+        <div class="counter-display" id="counter">0</div>
+        <div id="click-area">SPACEBAR</div>
+
+        <div class="result-box" id="result">
+            <span class="result-val" id="cps-result">0.00 CPS</span>
+            <span class="result-sub" id="click-total">0 total clicks</span>
+            <button class="mode-btn" onclick="resetTest()">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <div class="article-card">
+        <h2>What is a Spacebar CPS Test?</h2>
+        <p>A <strong>Spacebar CPS Test</strong> (Clicks Per Second test) measures how many times you can press the spacebar within a set time. Whether you're a competitive gamer optimizing your APM (Actions Per Minute), a student testing your keyboard's responsiveness, or just curious about your personal record, this tool gives you instant, accurate results.</p>
+
+        <h2>How to Use This Tool</h2>
+        <ol>
+            <li><strong>Choose a duration</strong> — 1 second for a pure burst test, up to 60 seconds for endurance.</li>
+            <li><strong>Press SPACEBAR</strong> (or tap the button on mobile) to start the timer and register your first click.</li>
+            <li><strong>Keep clicking</strong> as fast as you can until the timer runs out.</li>
+            <li><strong>See your score</strong> in CPS (clicks per second) and total clicks.</li>
+        </ol>
+
+        <h2>What is a Good Spacebar CPS?</h2>
+        <table>
+            <thead><tr><th>Score</th><th>Rating</th><th>Notes</th></tr></thead>
+            <tbody>
+                <tr><td>1–3 CPS</td><td>Beginner</td><td>Average casual user</td></tr>
+                <tr><td>4–6 CPS</td><td>Intermediate</td><td>Typical gamer range</td></tr>
+                <tr><td>7–10 CPS</td><td>Advanced</td><td>Competitive gaming range</td></tr>
+                <tr><td>11–15 CPS</td><td>Elite</td><td>Requires technique (butterfly / jitter)</td></tr>
+                <tr><td>16+ CPS</td><td>World Class</td><td>World record territory</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Tips to Improve Your Spacebar Clicking Speed</h2>
+        <ul>
+            <li><strong>Butterfly Technique:</strong> Alternate between two fingers on the spacebar to effectively double your rate.</li>
+            <li><strong>Jitter Clicking:</strong> Tense your arm to create controlled vibrations that transfer to rapid clicks. Advanced but highly effective.</li>
+            <li><strong>Relax Your Wrist:</strong> Tension is the enemy of speed. Keep your wrist loose and let your fingers do the work.</li>
+            <li><strong>Use a Mechanical Keyboard:</strong> Switches with shorter actuation distances (like Cherry MX Speed Silver) allow faster repeat presses.</li>
+            <li><strong>Practice Consistently:</strong> Like any motor skill, spacebar speed improves with deliberate daily practice.</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Put Your Speed to Work!</h3>
+            <p>Think you're fast enough? Test your skills in the full Spacebar Clicker game and build a clicking empire.</p>
+            <a href="/" class="cta-btn">PLAY SPACEBAR CLICKER →</a>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <a href="https://github.com/m2mobeen/spacebarclicker" title="Spacebar Clicker on GitHub" target="_blank"
+        rel="noopener noreferrer">
+        <img src="https://github.githubassets.com/favicons/favicon.png" width="8" height="8" alt="GitHub" /></a>
+    <a href="https://www.crazygames.com/game/space-bar-clicker" title="Spacebar Clicker on CrazyGames"
+        target="_blank" rel="noopener noreferrer">
+        <img src="https://imgs.crazygames.com/favicons/touch-icon.png" width="8" height="8" alt="CrazyGames" /></a>
+    <a href="https://www.youtube.com/watch?v=G8Cc6oNSPHw" title="Watch Spacebar Clicker on Youtube" target="_blank"
+        rel="noopener noreferrer">
+        <img src="https://www.gstatic.com/youtube/img/creator/favicon/favicon_32_v2.png" width="8" height="8"
+            alt="YouTube" /></a>
+    <a href="https://www.indiedb.com/games/spacebar-clicker" title="View Spacebar Clicker on IndieDB"
+        target="_blank" rel="noopener noreferrer">
+        <img src="https://media.indiedb.com/images/global/indiedb.png" width="8" height="8" alt="IndieDB" /></a>
+    <br><br>
+    <a href="/spacebar-speed-test">Spacebar Speed Test</a> |
+    <a href="/how-to-play">How to Play</a> |
+    <a href="/upgrade">Upgrades</a> |
+    <a href="/about">About</a> |
+    <a href="/privacy">Privacy</a> |
+    <a href="/contact">Contact</a>
+    <br><br>
+    &copy; 2026 Spacebar Clicker — a game by <a href="https://bruno.croci.me/" rel="nofollow noopener noreferrer"
+        target="_blank">CrociDB</a>
+</footer>
+
+<script>
+    let count = 0, timeLeft = 1, timerId = null, isActive = false, currentMode = 1;
+    const counterEl = document.getElementById('counter');
+    const timerEl = document.getElementById('timer');
+    const clickArea = document.getElementById('click-area');
+    const resultBox = document.getElementById('result');
+    const cpsResult = document.getElementById('cps-result');
+    const clickTotal = document.getElementById('click-total');
+
+    document.querySelectorAll('.mode-btn[data-time]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (isActive) return;
+            document.querySelectorAll('.mode-btn[data-time]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentMode = parseInt(btn.getAttribute('data-time'));
+            resetTest();
+        });
+    });
+
+    function startTest() {
+        isActive = true; count = 1;
+        timeLeft = currentMode;
+        counterEl.innerText = count;
+        clickArea.innerText = "CLICK!";
+        resultBox.style.display = "none";
+        const startTime = Date.now();
+        timerId = setInterval(() => {
+            let elapsed = (Date.now() - startTime) / 1000;
+            timeLeft = Math.max(0, currentMode - elapsed);
+            timerEl.innerText = timeLeft.toFixed(2) + "s remaining";
+            if (timeLeft <= 0) endTest();
+        }, 16);
+    }
+
+    function endTest() {
+        clearInterval(timerId); isActive = false;
+        clickArea.innerText = "FINISHED!";
+        const cps = (count / currentMode).toFixed(2);
+        cpsResult.innerText = cps + " CPS";
+        clickTotal.innerText = count + " total clicks in " + currentMode + "s";
+        resultBox.style.display = "block";
+    }
+
+    function resetTest() {
+        if (timerId) clearInterval(timerId);
+        count = 0; isActive = false;
+        counterEl.innerText = "0";
+        timerEl.innerText = currentMode.toFixed(2) + "s remaining";
+        clickArea.innerText = "SPACEBAR";
+        resultBox.style.display = "none";
+    }
+
+    function handleInput(e) {
+        if (e.type === 'keydown') {
+            if (e.code !== 'Space') return;
+            e.preventDefault();
+        }
+        if (!isActive && count === 0) { startTest(); return; }
+        if (isActive) {
+            count++;
+            counterEl.innerText = count;
+            clickArea.classList.add('sb_active');
+            setTimeout(() => clickArea.classList.remove('sb_active'), 60);
+        }
+    }
+
+    window.addEventListener('keydown', handleInput);
+    clickArea.addEventListener('mousedown', e => { e.preventDefault(); handleInput(e); });
+</script>
+
+<noscript><p style="text-align:center;padding:2rem;">This tool requires JavaScript. Please enable it in your browser settings.</p></noscript>
+</body>
+</html>
