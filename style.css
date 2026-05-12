@@ -16,12 +16,14 @@
 }
 
 /* ---------- Base Reset ---------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+    margin: 8px;
     padding: 0;
     overflow-x: hidden;
     user-select: none;
@@ -32,10 +34,6 @@ body {
 }
 
 /* ---------- Header ---------- */
-header {
-    padding: 10px 20px 0;
-}
-
 header .container {
     background: var(--bg-dark);
     border: var(--border-width) solid var(--border-light);
@@ -45,8 +43,6 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 header .logo-link {
@@ -232,7 +228,7 @@ tr:nth-child(even) {
     font-weight: 900;
     font-size: 1.1rem;
     border-radius: 8px;
-    border: 2px solid rgba(255,255,255,0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     transition: all 0.15s ease;
     letter-spacing: 1px;
 }
