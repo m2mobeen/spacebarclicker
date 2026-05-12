@@ -361,6 +361,61 @@ tr:nth-child(even) {
     user-select: none;
 }
 
+/* ---------- FAQ Accordion ---------- */
+.faq-accordion details {
+    margin-bottom: 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease;
+}
+
+.faq-accordion details[open] {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.faq-accordion summary {
+    padding: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    font-size: 1.1rem;
+}
+
+.faq-accordion summary h3 {
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    display: inline;
+}
+
+.faq-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-accordion summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+}
+
+.faq-accordion details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-accordion details p {
+    padding: 0 1rem 1rem;
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     header nav {
