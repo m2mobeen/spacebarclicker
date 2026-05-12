@@ -112,7 +112,6 @@ header nav a:hover {
 .page-container {
     max-width: 1000px;
     margin: 40px auto;
-    padding: 0 20px;
 }
 
 /* ---------- Article Card ---------- */
@@ -121,7 +120,7 @@ header nav a:hover {
     border: var(--border-width) solid var(--border-light);
     border-bottom-width: 15px;
     border-radius: var(--radius);
-    padding: 2.5rem;
+    padding: 2rem;
     margin-bottom: 40px;
     user-select: text;
 }
@@ -136,7 +135,7 @@ header nav a:hover {
 }
 
 .article-card h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--bg-dark);
     margin-top: 2.5rem;
     border-left: 8px solid var(--border-light);
@@ -370,10 +369,11 @@ tr:nth-child(even) {
 
     header .container {
         justify-content: center;
+        text-align: center;
     }
 
     .article-card {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .article-card h1 {
@@ -381,7 +381,7 @@ tr:nth-child(even) {
     }
 
     .article-card h2 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 
     table {
