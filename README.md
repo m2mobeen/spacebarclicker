@@ -130,7 +130,7 @@ npx serve .
 
 ## 📜 Credits
 
-- **Original Game** by [CrociDB](https://bruno.croci.me/) — [GitHub Repo](https://github.com/lightend/spacebar-clicker)
+- **Original Game** by [CrociDB](https://bruno.croci.me/) — [GitHub Repo](https://github.com/m2mobeen/spacebarclicker)
 - **Audio Engine** — [jsfxr](https://sfxr.me/) procedural sound synthesis
 - **Code & SEO Audit** — Comprehensive fixes applied May 2026
 
