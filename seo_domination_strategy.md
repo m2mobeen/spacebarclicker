@@ -34,7 +34,7 @@ spacebarclicker.win/
 ├── /how-to-play               ← Hub: Complete guide
 ├── /upgrades-guide            ← Hub: Full upgrade walkthrough
 ├── /tips-and-tricks           ← Hub: Strategy deep dive
-├── /spacebar-speed-test       ← Tool: Interactive CPS counter
+├── /speed-test              ← Tool: Interactive CPS counter
 ├── /clicker-games/            ← Cluster: Idle game genre hub
 │   ├── /cookie-clicker-vs-spacebar-clicker
 │   ├── /best-idle-clicker-games
@@ -52,7 +52,7 @@ spacebarclicker.win/
 
 #### 🥇 Tier 1 — Build These First
 
-**1. `/spacebar-speed-test`** — A standalone CPS (clicks per second) tester
+**1. `/speed-test`** — A standalone CPS (clicks per second) tester
 - Unique interactive tool = **massive link magnet**
 - Target: "spacebar speed test", "how fast can I press spacebar", "CPS test"
 - ~50,000 searches/month combined
@@ -253,7 +253,7 @@ Google measures user behavior. Better UX = better rankings.
 ### Secondary (High Value, Easier to Rank)
 | Keyword | Est. Volume | Page to Target |
 |---|---|---|
-| spacebar speed test | 50,000+ | /spacebar-speed-test |
+| spacebar speed test | 50,000+ | /speed-test |
 | spacebar clicker tips | 500+ | /tips-and-tricks |
 | spacebar clicker upgrades | 400+ | /upgrades-guide |
 | spacebar clicker high score | 300+ | /world-record |
@@ -279,7 +279,7 @@ Google measures user behavior. Better UX = better rankings.
 **Week 1–2:**
 - [ ] Add FAQ schema to `index.html`
 - [ ] Submit to all game directories (10+ submissions)
-- [ ] Create `/spacebar-speed-test` tool (highest priority)
+- [ ] Create `/speed-test` tool (highest priority)
 - [ ] Create `/how-to-play` page (1,500+ words)
 - [ ] Set up Google Search Console if not done
 - [ ] Set up Cloudflare Analytics or Plausible for traffic data
